@@ -7,7 +7,7 @@
 	String email = request.getParameter("email");
 	String nickname = request.getParameter("nickname");
 	String result = "null";
-	
+	//test
 	LoginController loginController = new LoginController();
 	
 	result = loginController.requestUserInfoCheck(email, nickname);
