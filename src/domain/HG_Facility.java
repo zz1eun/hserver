@@ -11,6 +11,7 @@ public class HG_Facility {
 	private double FAC_LOC_Longi;
 	private double FAC_LOC_Lati;
 	private int FAC_Place_no;
+	private String FAC_Detail;
 	
 	public int getFAC_id() {
 		return FAC_id;
@@ -66,11 +67,25 @@ public class HG_Facility {
 	public void setFAC_Place_no(int fac_place_no) {
 		FAC_Place_no = fac_place_no;
 	}
+	
+	public String getFAC_Detail() {
+		return FAC_Detail;
+	}
+	public void setFAC_Detail(String fAC_Detail) {
+		FAC_Detail = fAC_Detail;
+	}
+	public int getFAC_Place_no() {
+		return FAC_Place_no;
+	}
 	@Override
 	public String toString() {
 		return "HG_Facility [FAC_id=" + FAC_id + ", FAC_name=" + FAC_name + ", Category_no=" + Category_no
 				+ ", FAC_Address=" + FAC_Address + ", FAC_phone=" + FAC_phone + ", FAC_Proifle=" + FAC_Proifle
-				+ ", FAC_LOC_Longi=" + FAC_LOC_Longi + ", FAC_LOC_Lati=" + FAC_LOC_Lati + FAC_Place_no+"]";
+				+ ", FAC_LOC_Longi=" + FAC_LOC_Longi + ", FAC_LOC_Lati=" + FAC_LOC_Lati + ", FAC_Place_no="
+				+ FAC_Place_no + ", FAC_Detail=" + FAC_Detail + "]";
 	}
 
+	
+	
+	
 }

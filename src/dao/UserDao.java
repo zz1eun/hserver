@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import domain.User;
@@ -48,4 +49,60 @@ public class UserDao {
 		return result;
 		
 	}
+	
+	public String insertNickname(String nickname, String email, String gender, String profile) throws Exception {
+		
+		PreparedStatement pstmt = null, pstmt1 = null;
+		ResultSet rs = null;
+		String result = null;
+		int rs1;
+		
+		try {
+			
+			String sql = "select * from user where user_nickname = ?";			
+			ConnectDB connectDB = new ConnectDB();
+			pstmt = connectDB.getConnection().prepareStatement(sql);
+			pstmt.setString(1, nickname);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				result = "exist";
+				
+			} else {
+				
+				sql = "insert into user(user_email, user_password, user_gender, user_nickname, user_role_id, user_profile) values(?,?,?,?,?,?)";			
+				pstmt1 = connectDB.getConnection().prepareStatement(sql);
+				pstmt1.setString(1, email);
+				pstmt1.setString(2, "null");
+				pstmt1.setString(3, gender);
+				pstmt1.setString(4, nickname);
+				pstmt1.setInt(5, 2);
+				pstmt1.setString(6, profile);
+				rs1 = pstmt1.executeUpdate();
+				result = nickname;
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("닉네임 설정 예외 발생");
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try { rs.close(); } catch (SQLException e) { e.printStackTrace(); }
+			}
+			if(pstmt != null) {
+				try { pstmt.close(); } catch (SQLException e) { e.printStackTrace(); }
+			}
+			if(pstmt1 != null) {
+				try { pstmt1.close(); } catch (SQLException e) { e.printStackTrace(); }
+			}
+			
+		}
+		
+		return result;
+		
+	}
+	
 }

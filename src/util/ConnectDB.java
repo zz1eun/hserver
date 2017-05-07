@@ -12,7 +12,7 @@ public class ConnectDB {
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hplace", "root", "1234");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hplace", "root", "qwer1234");
 			System.out.println("데이터베이스가 연결되었습니다.");
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩에 실패했습니다.");

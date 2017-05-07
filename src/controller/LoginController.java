@@ -27,5 +27,11 @@ public class LoginController {
 		return loginDao.userInfoCheck(email, nickname);
 		
 	}
+	
+	public String requestUserNickname(String email) throws Exception {
+		
+		return loginDao.userNickname(email);
+	
+	}
 
 }

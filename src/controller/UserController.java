@@ -15,4 +15,11 @@ public class UserController {
 		return userDao.insert(newUser);
 		
 	}
+	
+	public String requestSetUserNickname(String nickname, String email, String gender, String profile) throws Exception {
+		
+		return userDao.insertNickname(nickname, email, gender, profile);
+		
+	}
+	
 }
